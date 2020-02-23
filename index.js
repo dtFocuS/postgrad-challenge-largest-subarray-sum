@@ -9,9 +9,12 @@ function largestSubarraySum(array){
 
     for (let i = 1; i < array.length; i++) {
         curSum = Math.max(array[i], curSum + array[i]);
+        if (curSum < 0) {
+            curSum = 0;
+        }
         maxSum = Math.max(maxSum, curSum);
     }
 
-    return maxSum >= 0 ? maxSum : 0;
+    return maxSum;
 
 }
